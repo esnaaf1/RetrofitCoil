@@ -17,9 +17,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.retrofitcoil.ui.theme.RetrofitCoilTheme
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.ui.unit.dp
 import androidx.compose.foundation.layout.padding
@@ -35,10 +33,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-//import com.example.retrofitcoil.NasaImageApp
 import coil.compose.AsyncImage
-import coil.request.ImageRequest
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.sp
@@ -61,18 +56,7 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-//@Composable
-//fun HomeScreen( uiState: NasaUiSate, modifier: Modifier = Modifier,
-//    contentPadding: PaddingValues = PaddingValues(0.dp)
-//) {
-//    when (uiState) {
-//        is NasaUiSate.Loading -> LoadingScreen(modifier = modifier.fillMaxSize())
-//        is NasaUiSate.Success -> ResultScreen(
-//            photos = uiState.photos, modifier = modifier.fillMaxWidth())
-//        is NasaUiSate.Error -> ErrorScreen(modifier = modifier.fillMaxSize())
-//    }
-//
-//}
+
 @Composable
 fun MainScreen(viewModel: MainViewModel = MainViewModel()) {
 
@@ -161,30 +145,6 @@ fun MainScreen(viewModel: MainViewModel = MainViewModel()) {
     // Other UI components
 
 }
-
-@Composable
-fun LoadingScreen(modifier: Modifier = Modifier) {
-    Image(
-        modifier = modifier.size(200.dp),
-        painter = painterResource(R.drawable.ic_launcher_foreground),
-        contentDescription = "Loading"
-    )
-}
-
-@Composable
-fun ErrorScreen(modifier: Modifier = Modifier) {
-    Column(
-        modifier = modifier,
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-        Image(
-            painter = painterResource(id = R.drawable.ic_launcher_foreground), contentDescription = ""
-        )
-        Text(text = "Failed to Load", modifier = Modifier.padding(16.dp))
-    }
-}
-
 
 @Composable
 fun ResultScreen(photos: String, modifier: Modifier= Modifier) {
