@@ -11,7 +11,6 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
 import com.example.retrofitcoil.network.Api
 import retrofit2.HttpException
-import retrofit2.Response
 import java.io.IOException
 
 class MainViewModel: ViewModel() {
