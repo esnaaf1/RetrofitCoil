@@ -1,7 +1,7 @@
 # NASA Image app
 ### SENG 5199(001)
 ## Overview
-This application makes a network API call to NASA's website and pulls down five images from the APOD
+This application, when launched, makes a network API call to NASA's website and pulls down five images from the APOD
 end point.
 The images are displayed as thumbnail and are clickable to for a larger view.
 
@@ -14,3 +14,15 @@ The images are displayed as thumbnail and are clickable to for a larger view.
 * MainViewModel - contains contains the MainViewModel class (base ViewModel()).
 * Image - contains the data class for the json response NASA's APOD endpoint.
 * MainActivity.kt - contain all the composable functions for the UI.
+
+## API_KEY: 
+This project uses the default api key(DEMO_KEY) provided by the Nasa website.
+replace the API_KEY constant in the ApiService.kt file with your own API.
+## Dependencies (to be included int he build.gradle:
+### Retrofit
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
+### Coil
+    implementation("io.coil-kt:coil-compose:2.5.0")
+## Permissions ( to be included in the AndroidManifest)
+    <uses-permission android:name="android.permission.INTERNET"/>

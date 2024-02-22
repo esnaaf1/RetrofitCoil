@@ -41,11 +41,11 @@ class MainViewModel: ViewModel() {
 
                 if (listResult.isNotEmpty()) {
 
-                    uiState1 = listResult[0].img_src
-                    uiState2 = listResult[1].img_src
-                    uiState3 = listResult[2].img_src
-                    uiState4 = listResult[3].img_src
-                    uiState5 = listResult[4].img_src
+                    uiState1 = listResult[0].hdurl
+                    uiState2 = listResult[1].hdurl
+                    uiState3 = listResult[2].hdurl
+                    uiState4 = listResult[3].hdurl
+                    uiState5 = listResult[4].hdurl
                 }
 
                 Log.d("API CALL RESULT: ", "$uiState1")
