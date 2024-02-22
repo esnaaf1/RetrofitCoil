@@ -29,13 +29,17 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.buildAnnotatedString
 import coil.compose.AsyncImage
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -61,19 +65,24 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun MainScreen(viewModel: MainViewModel) {
-
+    val colorlist: List<Color> = listOf(Color.Red, Color.Blue,
+        Color.Magenta, Color.Magenta, Color.Blue, Color.Black, Color.Cyan, Color.Red, Color.Green
+    )
     Column( horizontalAlignment = Alignment.CenterHorizontally) {
 
         Row (verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.Absolute.Center)
 
         {
-            Text(text = "NASA Image app",
-                Modifier
-                    .padding(4.dp)
-                    .size(200.dp, 80.dp)
-                    .border(width = 4.dp, color = Color.Black),
-                fontSize = 30.sp,
-                fontWeight = FontWeight.ExtraBold,
+
+
+            Text(text = buildAnnotatedString {
+                withStyle(style = SpanStyle(fontSize = 35.sp, fontWeight = FontWeight.Bold
+                    , brush = Brush.linearGradient(colorlist)
+                )
+                ) {append("NASA IMAGE APP")}
+            }, Modifier.padding(4.dp)
+                .border(width = 4.dp, color= Color.Blue)
+                .size(200.dp, 90.dp),
                 textAlign = TextAlign.Center)
         }
         Row {

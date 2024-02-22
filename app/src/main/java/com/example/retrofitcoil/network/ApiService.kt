@@ -14,7 +14,7 @@ private const val BASE_URL = "https://api.nasa.gov"
 
 
 // Replace below with your own api key
-private const val API_KEY = "16MeKXFK4VkrtHTM3JuDgFqidDgbgJhqXaWhb124"
+private const val API_KEY = "DEMO_KEY"
 private const val END_POINT = "/planetary/apod?api_key=$API_KEY&count=5"
 private val retrofit = Retrofit.Builder()
     .addConverterFactory(GsonConverterFactory.create())
