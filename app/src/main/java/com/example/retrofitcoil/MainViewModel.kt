@@ -1,6 +1,5 @@
 package com.example.retrofitcoil
 
-import android.net.http.HttpException
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.compose.runtime.mutableStateOf
@@ -12,14 +11,6 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
 import com.example.retrofitcoil.network.Api
 import java.io.IOException
-import java.util.ListResourceBundle
-
-
-//sealed interface NasaUiSate {
-//    data class Success(val photos: String) : NasaUiSate
-//    object Error : NasaUiSate
-//    object Loading : NasaUiSate
-//}
 
 class MainViewModel: ViewModel() {
     var uiState1: String by mutableStateOf("")
@@ -47,12 +38,12 @@ class MainViewModel: ViewModel() {
                     uiState4 = listResult[3].hdurl
                     uiState5 = listResult[4].hdurl
                 }
-
-                Log.d("API CALL RESULT: ", "$uiState1")
-                Log.d("API CALL RESULT: ", "$uiState2")
-                Log.d("API CALL RESULT: ", "$uiState3")
-                Log.d("API CALL RESULT: ", "$uiState4")
-                Log.d("API CALL RESULT: ", "$uiState5")
+// for debugging purposes
+//                Log.d("API CALL RESULT: ", "$uiState1")
+//                Log.d("API CALL RESULT: ", "$uiState2")
+//                Log.d("API CALL RESULT: ", "$uiState3")
+//                Log.d("API CALL RESULT: ", "$uiState4")
+//                Log.d("API CALL RESULT: ", "$uiState5")
             } catch (e: IOException) {
                 Log.d("API CALL RESULT: ", "IO ERROR")
             }
