@@ -33,11 +33,11 @@ class MainViewModel: ViewModel() {
 
                 if (listResult.isNotEmpty()) {
 
-                    uiState1 = listResult[0].hdurl
-                    uiState2 = listResult[1].hdurl
-                    uiState3 = listResult[2].hdurl
-                    uiState4 = listResult[3].hdurl
-                    uiState5 = listResult[4].hdurl
+                    uiState1 = listResult[0].url
+                    uiState2 = listResult[1].url
+                    uiState3 = listResult[2].url
+                    uiState4 = listResult[3].url
+                    uiState5 = listResult[4].url
                 }
 // for debugging purposes
 //                Log.d("API CALL RESULT: ", "$uiState1")
