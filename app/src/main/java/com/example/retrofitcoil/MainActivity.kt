@@ -75,13 +75,13 @@ fun MainScreen(viewModel: MainViewModel = MainViewModel()) {
         }
         Row {
             Text(text = "Welcome to the Nasa Image app. This app makes a network call to api.nasa.gov" +
-                    " and returns five images from the APOD API.",
+                    " using the APOD endpoint. It returns five random images.",
                 Modifier
                     .padding(1.dp)
                     .size(400.dp, 80.dp)
                     .border(width = 1.dp, color = Color.Black),
-                fontSize = 15.sp,
-                fontWeight = FontWeight.ExtraBold,
+                fontSize = 18.sp,
+                fontWeight = FontWeight.Bold,
                 textAlign = TextAlign.Center)
         }
         Row {
@@ -101,7 +101,7 @@ fun MainScreen(viewModel: MainViewModel = MainViewModel()) {
 
         Row (verticalAlignment = Alignment.CenterVertically){
 
-            Text(text = "Click the URL 2 thumbnail ",
+            Text(text = "Click the URL 1 thumbnail ",
                 fontSize = 20.sp,
                 fontWeight = FontWeight.Bold)
 
