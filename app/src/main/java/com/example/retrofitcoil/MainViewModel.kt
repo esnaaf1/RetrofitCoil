@@ -10,6 +10,8 @@ import androidx.lifecycle.viewModelScope
 
 import kotlinx.coroutines.launch
 import com.example.retrofitcoil.network.Api
+import retrofit2.HttpException
+import retrofit2.Response
 import java.io.IOException
 
 class MainViewModel: ViewModel() {
@@ -24,7 +26,7 @@ class MainViewModel: ViewModel() {
         getPhotos()
     }
 
-    private fun getPhotos() {
+   fun getPhotos() {
 
         viewModelScope.launch {
             try {
@@ -46,6 +48,8 @@ class MainViewModel: ViewModel() {
 //                Log.d("API CALL RESULT: ", "$uiState5")
             } catch (e: IOException) {
                 Log.d("API CALL RESULT: ", "IO ERROR")
+            } catch(e: HttpException) {
+                Log.d("API CALL RESULT: ","Server timeout or exceeding the request limit")
             }
 
         }

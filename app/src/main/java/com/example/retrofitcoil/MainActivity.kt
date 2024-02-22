@@ -3,6 +3,7 @@ package com.example.retrofitcoil
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -37,6 +38,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
+import androidx.lifecycle.viewmodel.compose.viewModel
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -48,7 +50,8 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    MainScreen()
+                    val viewModel = viewModel {MainViewModel()}
+                    MainScreen(viewModel)
                 }
             }
         }
@@ -57,7 +60,7 @@ class MainActivity : ComponentActivity() {
 
 
 @Composable
-fun MainScreen(viewModel: MainViewModel = MainViewModel()) {
+fun MainScreen(viewModel: MainViewModel) {
 
     Column( horizontalAlignment = Alignment.CenterHorizontally) {
 
@@ -94,9 +97,15 @@ fun MainScreen(viewModel: MainViewModel = MainViewModel()) {
                 fontWeight = FontWeight.ExtraBold,
                 textAlign = TextAlign.Center)
         }
-        Button(onClick = { /*TODO*/ }) {
+        Button(onClick = { viewModel.getPhotos() }) {
+            Image(painter = painterResource(id = R.drawable.nasa_logo),
+                contentDescription =" Nasa image icon",
+                modifier = Modifier.size(40.dp))
 
-            Text(text = "Refresh button (future enhancement)")
+            Text(text = "Refresh Images",
+                fontSize = 20.sp,
+                fontWeight = FontWeight.ExtraBold,
+                textAlign = TextAlign.Center)
         }
 
         Row (verticalAlignment = Alignment.CenterVertically){
@@ -159,7 +168,7 @@ fun AsyncImageLoader(imageUrl: String, modifier: Modifier = Modifier) {
         model = imageUrl,
         contentDescription = "Loaded Image",
         contentScale = ContentScale.FillBounds,
-        error = painterResource(id = R.drawable.ic_launcher_foreground),
+        error = painterResource(id = R.drawable.loading_img),
         modifier = modifier
     )
 }
