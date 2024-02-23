@@ -16,13 +16,13 @@ The images are displayed as thumbnail and are clickable to for a larger view.
 * MainActivity.kt - contain all the composable functions for the UI.
 
 ## API_KEY: 
-This project uses the default api key(DEMO_KEY) provided by the Nasa website.
+This project uses the default api key(DEMO_KEY) provided by NASA's API.
 replace the API_KEY constant in the ApiService.kt file with your own API.
-## Dependencies (to be included int he build.gradle:
+## Dependencies (add to build.gradle):
 ### Retrofit
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
 ### Coil
     implementation("io.coil-kt:coil-compose:2.5.0")
-## Permissions ( to be included in the AndroidManifest)
+## Permissions (add to AndroidManifest)
     <uses-permission android:name="android.permission.INTERNET"/>
