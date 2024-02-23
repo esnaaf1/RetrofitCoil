@@ -80,9 +80,11 @@ fun MainScreen(viewModel: MainViewModel) {
                     , brush = Brush.linearGradient(colorlist)
                 )
                 ) {append("NASA IMAGE APP")}
-            }, Modifier.padding(4.dp)
-                .border(width = 4.dp, color= Color.Blue)
-                .size(200.dp, 90.dp),
+            },
+                Modifier
+                    .padding(4.dp)
+                    .border(width = 4.dp, color = Color.Blue)
+                    .size(200.dp, 90.dp),
                 textAlign = TextAlign.Center)
         }
         Row {
@@ -216,6 +218,6 @@ fun ImageScreen(imageUrl: String) {
 @Composable
 fun ResultScreenPreview() {
     RetrofitCoilTheme {
-        ResultScreen(stringResource(id = R.string.placeholder_result))
+        MainScreen(viewModel = MainViewModel())
     }
 }
